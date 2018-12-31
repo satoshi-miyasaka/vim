@@ -68,3 +68,22 @@ set ambiwidth=double
 inoremap <ESC> <ESC>:set imd<CR>:set noimd<CR>
 " エスケープ連打でハイライトを解除
 nnoremap <ESC><ESC> :noh<CR>
+
+
+" プラグインの設定
+" set the runtime path to include Vundle and initialize
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" set rtp+=~/.vim/bundle/Vundle.vim
+" git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+set rtp+=~/.vim/bundle/nerdtree
+" git clone https://github.com/thinca/vim-quickrun.git ~/.vim/bundle/vim-quickrun
+set rtp+=~/.vim/bundle/vim-quickrun
+" git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
+set rtp+=~/.vim/bundle/vim-fugitive
+" git clone https://github.com/artur-shaik/vim-javacomplete2.git ~/.vim/bundle/vim-javacomplete2
+set rtp+=~/.vim/bundle/vim-javacomplete2
+
+
+autocmd FileType java :setlocal omnifunc=javacomplete#Complete
+autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
+
