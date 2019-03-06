@@ -1,5 +1,7 @@
 scriptencoding utf-8
 colorscheme murphy
+" vi 非互換
+set nocompatible
 " 表示設定
 set encoding=utf-8 " エンコード
 set guifont=Migu_1M:h14 "フォントの変更
@@ -69,7 +71,6 @@ inoremap <ESC> <ESC>:set imd<CR>:set noimd<CR>
 " エスケープ連打でハイライトを解除
 nnoremap <ESC><ESC> :noh<CR>
 
-
 " プラグインの設定
 " set the runtime path to include Vundle and initialize
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -82,7 +83,6 @@ set rtp+=~/.vim/bundle/vim-quickrun
 set rtp+=~/.vim/bundle/vim-fugitive
 " git clone https://github.com/artur-shaik/vim-javacomplete2.git ~/.vim/bundle/vim-javacomplete2
 set rtp+=~/.vim/bundle/vim-javacomplete2
-
 
 autocmd FileType java :setlocal omnifunc=javacomplete#Complete
 autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
