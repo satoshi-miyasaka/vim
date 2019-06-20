@@ -1,3 +1,4 @@
+let s:num = 0
 let s:pathSep = '/'
 let t:wn = 0
 
@@ -115,19 +116,21 @@ function! PathMove(vect)
 endfunction
 
 function! EOpen(arg)
+	let s:num += 1
 	let path = getline('.')
 	if 'v' == a:arg
 		let t:wn = bufwinid('%')
-		:50vnew
+		execute(':50vnew explorer'.s:num)
 	elseif 'h' == a:arg
 		let t:wn = bufwinid('%')
-		:20new
+		execute(':20new explorer'.s:num)
 	elseif 't' == a:arg
+		execute(':tabnew explorer'.s:num)
 		let t:wn = 0
-		:tabnew
 	else
 		let t:wn = 0
-		:enew
+		execute(':enew')
+		execute(':file explorer'.s:num)
 	endif
 	execute('normal i'.path)
 	call Exp()
