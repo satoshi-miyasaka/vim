@@ -53,10 +53,10 @@ function! s:makePath()
 				let base = substitute(temp, '\v[+|-]+ ', '', '').base
 			endif
 		endwhile
-	elseif '/' != dir[strlen(dir)-1]
+	elseif s:pathSep != dir[strlen(dir)-1]
 		if 'dir' == getftype(dir)
-			call setline('.', dir.'/')
-			let dir = dir.'/'
+			call setline('.', dir.s:pathSep)
+			let dir = dir.s:pathSep
 		endif
 	endif
 	return base.substitute(dir, '\v^[+|-]+ ', '', '')
@@ -171,7 +171,7 @@ function! Tree(arg)
 	let files = []
 	for file in split(filelist, "\n")
 		if 'dir' == getftype(file)
-			execute('normal o'.newTgr.'+ '.file[strlen(dir):].'/')
+			execute('normal o'.newTgr.'+ '.file[strlen(dir):].s:pathSep)
 			if 0 < r
 				call s:SubTree(r -1)
 			endif
@@ -200,7 +200,7 @@ function! s:SubTree(arg)
 	let files = []
 	for file in split(filelist, "\n")
 		if 'dir' == getftype(file)
-			execute('normal o'.newTgr.'+ '.file[strlen(dir):].'/')
+			execute('normal o'.newTgr.'+ '.file[strlen(dir):].s:pathSep)
 			if 0 < r
 				call s:SubTree(r -1)
 			endif
