@@ -4,11 +4,14 @@ let t:wn = 0
 
 function! Exp()
 	let dir = s:makePath()
-	let filelist = glob(dir.'*')
+	let filelist = glob(dir.'.*')."\n".glob(dir.'*')
 	let files = []
 	:%d
 	execute('normal i'.dir)
 	for file in split(filelist, "\n")
+		if dir.'.' == file || dir.'..' == file
+			continue
+		endif
 		if 'dir' == getftype(file)
 			execute('normal o+ '.file[strlen(dir):].s:pathSep)
 		else
@@ -167,9 +170,12 @@ function! Tree(arg)
 	let tgr = matchstr(getline(s), '\v^[+|-]+', 0)
 	let newTgr = substitute(tgr, '+', '|', 'g')
 
-	let filelist = glob(dir.'*')
+	let filelist = glob(dir.'.*')."\n".glob(dir.'*')
 	let files = []
 	for file in split(filelist, "\n")
+		if dir.'.' == file || dir.'..' == file
+			continue
+		endif
 		if 'dir' == getftype(file)
 			execute('normal o'.newTgr.'+ '.file[strlen(dir):].s:pathSep)
 			if 0 < r
@@ -196,9 +202,12 @@ function! s:SubTree(arg)
 	let tgr = matchstr(getline(s), '\v^[+|-]+', 0)
 	let newTgr = substitute(tgr, '+', '|', 'g')
 
-	let filelist = glob(dir.'*')
+	let filelist = glob(dir.'.*')."\n".glob(dir.'*')
 	let files = []
 	for file in split(filelist, "\n")
+		if dir.'.' == file || dir.'..' == file
+			continue
+		endif
 		if 'dir' == getftype(file)
 			execute('normal o'.newTgr.'+ '.file[strlen(dir):].s:pathSep)
 			if 0 < r
