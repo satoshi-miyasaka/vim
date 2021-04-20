@@ -4,8 +4,9 @@ colorscheme murphy
 set nocompatible
 " 表示設定
 set encoding=utf-8 " エンコード
-set guifont=Migu_1M:h14 "フォントの変更
+"set guifont=Migu_1M:h14 "フォントの変更
 set number         " 行番号を表示する
+set relativenumber " 行の相対表示
 set cursorline     " カーソル行の背景色を変える
 set cursorcolumn   " カーソル位置のカラムの背景色を変える
 set laststatus=2   " ステータス行を常に表示
@@ -21,8 +22,8 @@ set listchars=tab:^\ ,eol:$,extends:>,precedes:<,trail:-
 " カーソルの設定
 set backspace=indent,eol,start " Backspaceキーの影響範囲に制限を設けない
 set whichwrap=b,s,h,l,<,>,[,]  " 行頭行末の左右移動で行をまたぐ
-set scrolloff=8                " 上下8行の視界を確保
-set sidescrolloff=16           " 左右スクロール時の視界を確保
+set scrolloff=2                " 上下2行の視界を確保
+set sidescrolloff=8            " 左右スクロール時の視界を確保
 set sidescroll=1               " 左右スクロールは一文字づつ行う
 " ファイル処理の設定
 set confirm    " 保存されていないファイルがあるときは終了前に保存確認
@@ -76,16 +77,14 @@ nnoremap <ESC><ESC> :noh<CR>
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " set rtp+=~/.vim/bundle/Vundle.vim
 " git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-set rtp+=~/.vim/bundle/nerdtree
+"set rtp+=~/.vim/bundle/nerdtree
 " git clone https://github.com/thinca/vim-quickrun.git ~/.vim/bundle/vim-quickrun
-set rtp+=~/.vim/bundle/vim-quickrun
+"set rtp+=~/.vim/bundle/vim-quickrun
 " git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/vim-fugitive
-set rtp+=~/.vim/bundle/vim-fugitive
+"set rtp+=~/.vim/bundle/vim-fugitive
 " git clone https://github.com/artur-shaik/vim-javacomplete2.git ~/.vim/bundle/vim-javacomplete2
-set rtp+=~/.vim/bundle/vim-javacomplete2
+"set rtp+=~/.vim/bundle/vim-javacomplete2
 
 autocmd FileType java :setlocal omnifunc=javacomplete#Complete
 autocmd FileType java :setlocal completefunc=javacomplete#CompleteParamsInfo
 
-" my script
-source explorer.vim
