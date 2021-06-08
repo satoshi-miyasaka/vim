@@ -4,6 +4,7 @@ colorscheme murphy
 set nocompatible
 " 表示設定
 set encoding=utf-8 " エンコード
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 "set guifont=Migu_1M:h14 "フォントの変更
 set number         " 行番号を表示する
 set relativenumber " 行の相対表示
