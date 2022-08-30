@@ -17,7 +17,7 @@ set helpheight=999 " ヘルプを画面いっぱいに開く
 set list           " 不可視文字を表示
 set nowrap         " 改行しない
 " 80,160,240カラム目に色を付ける
-set colorcolumn=80,160,240
+"set colorcolumn=80,160,240
 " 不可視文字の表示記号指定
 set listchars=tab:^\ ,eol:$,extends:>,precedes:<,trail:-
 " カーソルの設定
