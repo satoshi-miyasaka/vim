@@ -18,7 +18,7 @@ set list           " 不可視文字を表示
 set nowrap         " 改行しない
 " 80,160,240カラム目に色を付ける
 "set colorcolumn=80,160,240
-" 不可視文字の表示記号指定
+" 不可視文字の表示記号指
 set listchars=tab:^\ ,eol:$,extends:>,precedes:<,trail:-
 " カーソルの設定
 set backspace=indent,eol,start " Backspaceキーの影響範囲に制限を設けない
