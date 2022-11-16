@@ -68,10 +68,28 @@ set noerrorbells "エラーメッセージの表示時にビープを鳴らさ�
 " 全角文字の崩れを防ぐ
 set ambiwidth=double
 
+" モードライン ファイルの先頭か末尾にコメントを書くことで
+" そのファイルの書式を設定する
+" ex) /* vim: set shiftwide=4:tabstop=4:expandtabs */
+set modeline
+
 " 挿入モードでエスケープすると、IMEをOFFにする
 inoremap <ESC> <ESC>:set imd<CR>:set noimd<CR>
 " エスケープ連打でハイライトを解除
 nnoremap <ESC><ESC> :noh<CR>
+
+filetype on
+filetype plugin on
+
+augroup vimrc
+  autocmd!
+  autocmd Filetype vim setlocal dictionary=~/.vim/dict/vimrc.dict
+augroup END
+
+augroup python
+  autocmd!
+  autocmd Filetype python setlocal dictionary=~/.vim/dict/python3.dict
+augroup END
 
 " プラグインの設定
 " set the runtime path to include Vundle and initialize
